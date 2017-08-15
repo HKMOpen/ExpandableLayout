@@ -3,6 +3,7 @@ package com.github.aakira.expandablelayout;
 import android.animation.TimeInterpolator;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -35,22 +36,46 @@ public interface ExpandableLayout {
     }
 
     /**
-     * Starts animation the state of the view to the inverse of its current state
+     * Starts animation the state of the view to the inverse of its current state.
      */
     void toggle();
 
     /**
-     * Starts expand animation
+     * Starts animation the state of the view to the inverse of its current state.
+     *
+     * @param duration
+     * @param interpolator use the default interpolator if the argument is null.
+     */
+    void toggle(final long duration, @Nullable final TimeInterpolator interpolator);
+
+    /**
+     * Starts expand animation.
      */
     void expand();
 
     /**
-     * Starts collapse animation
+     * Starts expand animation.
+     *
+     * @param duration
+     * @param interpolator use the default interpolator if the argument is null.
+     */
+    void expand(final long duration, @Nullable final TimeInterpolator interpolator);
+
+    /**
+     * Starts collapse animation.
      */
     void collapse();
 
     /**
-     * Sets the expandable layout listener
+     * Starts collapse animation.
+     *
+     * @param duration
+     * @param interpolator use the default interpolator if the argument is null.
+     */
+    void collapse(final long duration, @Nullable final TimeInterpolator interpolator);
+
+    /**
+     * Sets the expandable layout listener.
      *
      * @param listener ExpandableLayoutListener
      */
@@ -65,22 +90,18 @@ public interface ExpandableLayout {
     void setDuration(final int duration);
 
     /**
-     * Sets state of expanse at first visibility
-     *
-     * This method is deprecated.
-     * The method of #setExpanded(boolean) replaces this.
-     *
-     * @param defaultVisibility
-     */
-    @Deprecated
-    void setDefaultVisibility(final boolean defaultVisibility);
-
-    /**
-     * Sets state of expanse
+     * Sets state of expanse.
      *
      * @param expanded The layout is visible if expanded is true
      */
     void setExpanded(final boolean expanded);
+
+    /**
+     * Gets state of expanse.
+     *
+     * @return true if the layout is visible
+     */
+    boolean isExpanded();
 
     /**
      * The time interpolator used in calculating the elapsed fraction of this animation. The

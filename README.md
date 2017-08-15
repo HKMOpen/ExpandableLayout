@@ -3,6 +3,7 @@
 An android library that brings the expandable layout with various animation.
 You can include optional contents and use everywhere.
 
+[![Circle CI](https://circleci.com/gh/AAkira/ExpandableLayout.svg?style=shield&circle-token=cb7464e0215aaecb740936d1d68010ee0ffd4806)](https://circleci.com/gh/AAkira/ExpandableLayout)
 [![Platform](http://img.shields.io/badge/platform-android-brightgreen.svg?style=flat)](http://developer.android.com/index.html)
 [![Language](http://img.shields.io/badge/language-java-orange.svg?style=flat)](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 [![License](http://img.shields.io/badge/license-apache2.0-lightgrey.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0)
@@ -18,15 +19,21 @@ You can include optional contents and use everywhere.
 ### Example
 
 ![ExampleRecyclerView][ExampleRecyclerView] ![ExampleSearch][ExampleSearch]
+![ExampleReadMore][ExampleReadMore]
 
 ## Usage
 
 ### ExpandableRelativeLayout
 
+#### Usage
+
+The expandableRelativeLayout doesn't work if child views change a size. 
+You should use the ExpandableLinearLayout if there is a possibility.
+
 #### Code
 
 ```java
-ExpandableRelativeLayout expandLayout
+ExpandableRelativeLayout expandableLayout
  = (ExpandableRelativeLayout) findViewById(R.id.expandableLayout);
 
 // toggle expand, collapse
@@ -54,10 +61,10 @@ add `xmlns:app="http://schemas.android.com/apk/res-auto"`
     android:id="@+id/expandableLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:expanded="false"
-    app:duration="500"
-    app:interpolator="bounce"
-    app:orientation="vertical">
+    app:ael_expanded="false"
+    app:ael_duration="500"
+    app:ael_interpolator="bounce"
+    app:ael_orientation="vertical">
 
     <TextView
         android:id="@+id/text"
@@ -72,14 +79,46 @@ add `xmlns:app="http://schemas.android.com/apk/res-auto"`
 </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
 ```
 
+### ExpandableLinearLayout
+
+#### Usage
+
+You should use the ExpandableLinearLayout if child views may change a size. 
+For example, it gets and sets values from a server.
+And you should use this in recycler view.
+
+#### Code
+
+```java
+
+// resize expandable layout
+
+ExpandableLinearLayout expandableLayout
+ = (ExpandableLinearLayout) findViewById(R.id.expandableLayout);
+
+child.setText("Sets text from a server");
+expandableLayout.initLayout(); // Recalculate size of children
+
+// recycler view
+// you must set a ViewHolder#setIsRecyclable(false) and ExpandableLinearLayout#setInRecyclerView(true) 
+
+@Override
+public void onBindViewHolder(final ViewHolder holder, final int position) {
+    holder.setIsRecyclable(false);
+    holder.expandableLinearLayout.setInRecyclerView(true);
+}
+```
+
 ### ExpandableWeightLayout
+
+#### Usage
 
 You should use this layout if you want to use weight attributes at expandable layout.
 
 #### Code
 
 ```java
-ExpandableWeightLayout expandLayout
+ExpandableWeightLayout expandableLayout
  = (ExpandableWeightLayout) findViewById(R.id.expandableLayout);
 
 // toggle expand, collapse
@@ -110,8 +149,8 @@ add `xmlns:app="http://schemas.android.com/apk/res-auto"`
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
-        app:duration="1000"
-        app:interpolator="anticipateOvershoot">
+        app:ael_duration="1000"
+        app:ael_interpolator="anticipateOvershoot">
 
         <ImageView
             android:layout_width="match_parent"
@@ -159,16 +198,33 @@ expandableLayout.setListener(new ExpandableLayoutListener() {
     }
 });
 ```
+* `ExpandableLayoutListenerAdapter`
+ - You can set listeners only you need. 
+
+```java
+
+expandableLayout.setListener(new ExpandableLayoutListenerAdapter() {
+    @Override
+    public void onPreOpen() {
+    }
+
+    @Override
+    public void onPreClose() {
+    }
+});
+
+```
 
 ### Attributes
 
 |attribute name|description|
 |:-:|:-:|
-|duration|The length of the expand or collapse animation|
-| ~~defaultVisibility~~ |This attribute is deprecated. `expanded` replaces this.|
-|expanded|The layout is expanded if you set true|
-|orientation|The orientation of animation(horizontal \| vertical)|
-|interpolator|Sets [interpolator](#interpolator)|
+|ael_duration|The length of the expand or collapse animation|
+|ael_expanded|The layout is expanded if you set true|
+|ael_defaultChildIndex|The layout is expanded at index of child view. (Only `ExpandableRelativeLayout`)|
+|ael_defaultPosition|The layout is expanded at the position. (Only `ExpandableRelativeLayout`)|
+|ael_orientation|The orientation of animation(horizontal \| vertical)|
+|ael_interpolator|Sets [interpolator](#interpolator)|
 
 ### Interpolator
 
@@ -212,7 +268,7 @@ buildscript {
 }
 
 dependencies {
-	compile 'com.github.aakira:expandable-layout:1.1.0@aar'
+	compile 'com.github.aakira:expandable-layout:1.6.0@aar'
 }
 ```
 
@@ -221,7 +277,7 @@ dependencies {
 ### Akira Aratani
 
 * Twitter
- - https://twitter.com/akira_aratani
+ - [@_a_akira](https://twitter.com/_a_akira)
 * Mail
  - developer.a.akira@gmail.com
 
@@ -251,3 +307,4 @@ limitations under the License.
 [ExpandableWeightLayout]: /art/ExpandableWeightLayout.gif
 [ExampleSearch]: /art/ExampleSearch.gif
 [ExampleRecyclerView]: /art/ExampleRecyclerview_v1.1.gif
+[ExampleReadMore]: /art/ExampleReadMore.gif

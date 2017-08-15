@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.github.aakira.expandablelayout.ExpandableRelativeLayout;
+
 import jp.android.aakira.sample.expandablelayout.R;
 
 public class ExpandableLayoutActivity extends AppCompatActivity implements View.OnClickListener {
@@ -20,7 +21,7 @@ public class ExpandableLayoutActivity extends AppCompatActivity implements View.
     private Button mMoveChildButton;
     private Button mMoveChildButton2;
     private Button mMoveTopButton;
-    private Button mSetCloseHeihgtButton;
+    private Button mSetCloseHeightButton;
     private ExpandableRelativeLayout mExpandLayout;
 
     @Override
@@ -33,14 +34,14 @@ public class ExpandableLayoutActivity extends AppCompatActivity implements View.
         mExpandButton = (Button) findViewById(R.id.expandButton);
         mMoveChildButton = (Button) findViewById(R.id.moveChildButton);
         mMoveChildButton2 = (Button) findViewById(R.id.moveChildButton2);
-        mMoveTopButton = (Button)findViewById(R.id.moveTopButton);
-        mSetCloseHeihgtButton  = (Button) findViewById(R.id.setCloseHeightButton);
+        mMoveTopButton = (Button) findViewById(R.id.moveTopButton);
+        mSetCloseHeightButton = (Button) findViewById(R.id.setCloseHeightButton);
         mExpandLayout = (ExpandableRelativeLayout) findViewById(R.id.expandableLayout);
         mExpandButton.setOnClickListener(this);
         mMoveChildButton.setOnClickListener(this);
         mMoveChildButton2.setOnClickListener(this);
         mMoveTopButton.setOnClickListener(this);
-        mSetCloseHeihgtButton.setOnClickListener(this);
+        mSetCloseHeightButton.setOnClickListener(this);
     }
 
     @Override
