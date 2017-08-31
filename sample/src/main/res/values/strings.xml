@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ExpandableLayoutSample</string>
+    <string name="payment_selection_label_tickets">ExpandableLayoutSample XXX</string>
 </resources>

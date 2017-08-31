@@ -19,8 +19,8 @@ android {
 }
 
 dependencies {
+    compile libden.support
+    compile libden.appCompat
+    compile libden.recycler
     compile project(':library')
-
-    compile "com.android.support:appcompat-v7:$SUPPORT_APP_COMPAT_VERSION"
-    compile "com.android.support:recyclerview-v7:$SUPPORT_APP_COMPAT_VERSION"
 }

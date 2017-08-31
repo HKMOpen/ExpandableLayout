@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:bottom="10dp"
+        android:top="10dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/colorAccentWhite" />
+        </shape>
+    </item>
+
+
+    <item
+        android:height="10dp"
+        android:adjustViewBounds="false"
+        android:drawable="@drawable/ticketlayout_top"
+        android:gravity="top"
+        android:scaleType="fitEnd" />
+
+
+    <item
+        android:height="10dp"
+        android:adjustViewBounds="false"
+        android:drawable="@drawable/ticketlayout_bottom"
+        android:gravity="bottom"
+        android:scaleType="fitEnd" />
+
+
+</layer-list>

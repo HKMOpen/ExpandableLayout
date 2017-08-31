@@ -10,6 +10,7 @@ import android.widget.TextView;
 import java.util.Map;
 
 import jp.android.aakira.sample.expandablelayout.R;
+import jp.android.aakira.sample.expandablelayout.exampleexpanded.ExTypeTestCase;
 import jp.android.aakira.sample.expandablelayout.exampleexpanded.ExampleReadMoreActivity;
 import jp.android.aakira.sample.expandablelayout.examplerecyclerview.RecyclerViewActivity;
 import jp.android.aakira.sample.expandablelayout.examplesearch.ExampleSearchActivity;
@@ -53,6 +54,11 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
                     case 4:
                         ExampleReadMoreActivity.startActivity(context);
                         break;
+
+                    case 5:
+                        ExTypeTestCase.startActivity(context);
+                        break;
+
                 }
             }
         });

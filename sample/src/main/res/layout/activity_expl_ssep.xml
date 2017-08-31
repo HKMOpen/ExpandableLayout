@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/part_fb"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginLeft="@dimen/gap_lv3"
+        android:layout_marginRight="@dimen/gap_lv3">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/btn2"
+            android:gravity="left|center_vertical"
+            android:text="food items"
+            android:textColor="@color/gray_da"
+            android:textSize="@dimen/tag_size_tiny" />
+
+        <ImageView
+            android:id="@+id/btn2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_toLeftOf="@+id/qty2"
+            android:scaleType="centerInside"
+            android:src="@drawable/triangle" />
+
+        <TextView
+            android:id="@+id/qty2"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/amount2"
+            android:gravity="center"
+            android:text="XX"
+            android:textColor="@color/gray_da"
+            android:textSize="@dimen/tag_size_tiny" />
+
+        <TextView
+            android:id="@+id/amount2"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="right|center_vertical"
+            android:text="HKD xxxx"
+            android:textColor="@color/gray_da"
+            android:textSize="@dimen/tag_size_tiny" />
+
+    </RelativeLayout>
+
+    <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+        android:id="@+id/info_box_fb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/part_fb"
+        app:ael_duration="1000"
+        app:ael_expanded="false"
+        app:ael_interpolator="accelerateDecelerate"
+        app:ael_orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/part_fb_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/s1"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginLeft="@dimen/gap_lv3"
+                android:layout_marginRight="@dimen/gap_lv3">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@+id/qt1"
+                    android:gravity="left|center_vertical"
+                    android:text="@string/payment_selection_label_tickets"
+                    android:textColor="@color/gray_light"
+                    android:textSize="@dimen/tag_size_tiny" />
+
+                <TextView
+                    android:id="@+id/qt1"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@+id/am1"
+                    android:gravity="center"
+                    android:text="XX"
+                    android:textColor="@color/gray_light"
+                    android:textSize="@dimen/tag_size_tiny" />
+
+                <TextView
+                    android:id="@+id/am1"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:gravity="right|center_vertical"
+                    android:text="HKD xxxx"
+                    android:textColor="@color/gray_light"
+                    android:textSize="@dimen/tag_size_tiny" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/s2"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginLeft="@dimen/gap_lv3"
+                android:layout_marginRight="@dimen/gap_lv3">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@+id/qt2"
+                    android:gravity="left|center_vertical"
+                    android:text="@string/payment_selection_label_tickets"
+                    android:textColor="@color/gray_light"
+                    android:textSize="@dimen/tag_size_tiny" />
+
+                <TextView
+                    android:id="@+id/qt2"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@+id/am2"
+                    android:gravity="center"
+                    android:text="XX"
+                    android:textColor="@color/gray_light"
+                    android:textSize="@dimen/tag_size_tiny" />
+
+                <TextView
+                    android:id="@+id/am2"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:gravity="right|center_vertical"
+                    android:text="HKD xxxx"
+                    android:textColor="@color/gray_light"
+                    android:textSize="@dimen/tag_size_tiny" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+</RelativeLayout>
