@@ -39,11 +39,12 @@
                     android:layout_marginRight="@dimen/gap_lv3"
                     android:text="all patrons are .... " />
 
-                <TextView
+                <Button
+                    android:id="@+id/add"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     android:layout_margin="@dimen/gap_lv3"
-                    android:text="Remarks" />
+                    android:text="Add Items addViews" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -58,25 +59,25 @@
                     android:layout_margin="@dimen/gap_lv3"
                     android:text="Remarks" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/gap_lv3"
-                    android:layout_marginRight="@dimen/gap_lv3"
-                    android:text="all patrons are .... " />
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     android:layout_margin="@dimen/gap_lv3"
                     android:text="Remarks" />
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/gap_lv3"
-                    android:layout_marginRight="@dimen/gap_lv3"
-                    android:text="all patrons are .... " />
+                    android:layout_height="200dp"
+                    android:layout_margin="@dimen/gap_lv3"
+                    android:text="Remarks" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_margin="@dimen/gap_lv3"
+                    android:text="Remarks" />
+
 
                 <include layout="@layout/activity_expl_ssep" />
 

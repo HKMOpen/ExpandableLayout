@@ -55,19 +55,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/part_fb"
-        app:ael_duration="1000"
+        app:ael_duration="500"
         app:ael_expanded="false"
-        app:ael_interpolator="accelerateDecelerate"
+        app:ael_interpolator="fastOutSlowIn"
         app:ael_orientation="vertical">
 
         <LinearLayout
             android:id="@+id/part_fb_box"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="start"
             android:orientation="vertical">
 
-
-            <RelativeLayout
+            <!--<RelativeLayout
                 android:id="@+id/s1"
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
@@ -142,7 +142,7 @@
                     android:textColor="@color/gray_light"
                     android:textSize="@dimen/tag_size_tiny" />
 
-            </RelativeLayout>
+            </RelativeLayout>-->
         </LinearLayout>
     </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
 </RelativeLayout>

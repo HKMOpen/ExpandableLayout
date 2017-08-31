@@ -144,6 +144,16 @@ public class ExpandableRelativeLayout extends RelativeLayout implements Expandab
     }
 
     @Override
+    public void initLayout() {
+        this.closePosition = 0;
+        this.layoutSize = 0;
+        this.isArranged = false;
+        this.isCalculatedSize = false;
+        this.savedState = null;
+        super.requestLayout();
+    }
+
+    @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
 
@@ -225,7 +235,7 @@ public class ExpandableRelativeLayout extends RelativeLayout implements Expandab
      */
     @Override
     public void expand() {
-        if (isAnimating) return;
+        if (isAnimating)return;
 
         createExpandAnimator(getCurrentPosition(), layoutSize, duration, interpolator).start();
     }
@@ -235,7 +245,7 @@ public class ExpandableRelativeLayout extends RelativeLayout implements Expandab
      */
     @Override
     public void expand(final long duration, final @Nullable TimeInterpolator interpolator) {
-        if (isAnimating) return;
+        if (isAnimating)return;
 
         if (duration <= 0) {
             move(layoutSize, duration, interpolator);
@@ -249,7 +259,7 @@ public class ExpandableRelativeLayout extends RelativeLayout implements Expandab
      */
     @Override
     public void collapse() {
-        if (isAnimating) return;
+        if (isAnimating)return;
 
         createExpandAnimator(getCurrentPosition(), closePosition, duration, interpolator).start();
     }
@@ -259,7 +269,7 @@ public class ExpandableRelativeLayout extends RelativeLayout implements Expandab
      */
     @Override
     public void collapse(final long duration, final @Nullable TimeInterpolator interpolator) {
-        if (isAnimating) return;
+        if (isAnimating)return;
 
         if (duration <= 0) {
             move(closePosition, duration, interpolator);
@@ -359,7 +369,7 @@ public class ExpandableRelativeLayout extends RelativeLayout implements Expandab
      * @param interpolator use the default interpolator if the argument is null.
      */
     public void moveChild(int index, long duration, @Nullable TimeInterpolator interpolator) {
-        if (isAnimating) return;
+        if (isAnimating)return;
 
         final int destination = getChildPosition(index) +
                 (isVertical() ? getPaddingBottom() : getPaddingRight());

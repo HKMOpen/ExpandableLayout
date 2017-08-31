@@ -112,4 +112,6 @@ public interface ExpandableLayout {
      * @param interpolator
      */
     void setInterpolator(@NonNull final TimeInterpolator interpolator);
+
+    void initLayout();
 }

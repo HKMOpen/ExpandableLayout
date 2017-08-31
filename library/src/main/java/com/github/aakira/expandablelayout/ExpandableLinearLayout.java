@@ -216,7 +216,7 @@ public class ExpandableLinearLayout extends LinearLayout implements ExpandableLa
      */
     @Override
     public void expand() {
-        if (isAnimating) return;
+        if (isAnimating)return;
 
         createExpandAnimator(getCurrentPosition(), layoutSize, duration, interpolator).start();
     }
@@ -226,7 +226,7 @@ public class ExpandableLinearLayout extends LinearLayout implements ExpandableLa
      */
     @Override
     public void expand(final long duration, final @Nullable TimeInterpolator interpolator) {
-        if (isAnimating) return;
+        if (isAnimating)return;
 
         if (duration <= 0) {
             move(layoutSize, duration, interpolator);
@@ -240,7 +240,7 @@ public class ExpandableLinearLayout extends LinearLayout implements ExpandableLa
      */
     @Override
     public void collapse() {
-        if (isAnimating) return;
+        if (isAnimating)return;
 
         createExpandAnimator(getCurrentPosition(), closePosition, duration, interpolator).start();
     }
@@ -250,7 +250,7 @@ public class ExpandableLinearLayout extends LinearLayout implements ExpandableLa
      */
     @Override
     public void collapse(final long duration, final @Nullable TimeInterpolator interpolator) {
-        if (isAnimating) return;
+        if (isAnimating)return;
 
         if (duration <= 0) {
             move(closePosition, duration, interpolator);
@@ -306,6 +306,7 @@ public class ExpandableLinearLayout extends LinearLayout implements ExpandableLa
     /**
      * Initializes this layout.
      */
+    @Override
     public void initLayout() {
         closePosition = 0;
         layoutSize = 0;
@@ -371,7 +372,7 @@ public class ExpandableLinearLayout extends LinearLayout implements ExpandableLa
      * @param interpolator use the default interpolator if the argument is null.
      */
     public void moveChild(int index, long duration, @Nullable TimeInterpolator interpolator) {
-        if (isAnimating) return;
+        if (isAnimating)return;
 
         final int destination = getChildPosition(index) +
                 (isVertical() ? getPaddingBottom() : getPaddingRight());

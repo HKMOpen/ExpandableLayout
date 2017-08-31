@@ -147,7 +147,7 @@ public class ExpandableWeightLayout extends RelativeLayout implements Expandable
      */
     @Override
     public void expand() {
-        if (isAnimating) return;
+        if (isAnimating)return;
 
         createExpandAnimator(0, layoutWeight, duration, interpolator).start();
     }
@@ -157,7 +157,7 @@ public class ExpandableWeightLayout extends RelativeLayout implements Expandable
      */
     @Override
     public void expand(final long duration, @Nullable final TimeInterpolator interpolator) {
-        if (isAnimating) return;
+        if (isAnimating)return;
 
         if (duration <= 0) {
             isExpanded = true;
@@ -174,7 +174,7 @@ public class ExpandableWeightLayout extends RelativeLayout implements Expandable
      */
     @Override
     public void collapse() {
-        if (isAnimating) return;
+        if (isAnimating)return;
 
         createExpandAnimator(getCurrentWeight(), 0, duration, interpolator).start();
     }
@@ -184,7 +184,7 @@ public class ExpandableWeightLayout extends RelativeLayout implements Expandable
      */
     @Override
     public void collapse(final long duration, @Nullable final TimeInterpolator interpolator) {
-        if (isAnimating) return;
+        if (isAnimating)return;
 
         if (duration <= 0) {
             isExpanded = false;
@@ -274,7 +274,7 @@ public class ExpandableWeightLayout extends RelativeLayout implements Expandable
      * @param interpolator use the default interpolator if the argument is null.
      */
     public void move(float weight, long duration, @Nullable TimeInterpolator interpolator) {
-        if (isAnimating) return;
+        if (isAnimating)return;
 
         if (duration <= 0L) {
             isExpanded = weight > 0;
@@ -381,5 +381,10 @@ public class ExpandableWeightLayout extends RelativeLayout implements Expandable
             }
         };
         getViewTreeObserver().addOnGlobalLayoutListener(mGlobalLayoutListener);
+    }
+
+    @Override
+    public void initLayout() {
+
     }
 }

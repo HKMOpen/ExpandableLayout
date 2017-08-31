@@ -37,7 +37,7 @@
     <com.github.aakira.expandablelayout.ExpandableLinearLayout
         android:id="@+id/expandableLayout"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/textView"
         android:orientation="vertical"
         app:ael_duration="400"
@@ -50,7 +50,7 @@
             android:layout_centerInParent="true"
             android:gravity="center"
             android:padding="@dimen/margin_normal"
-            android:text="
+            android:text="fsdfpos fposdf opsdfop sdipof ispopoisdpvspodivposdipvo sdpoipv sidopifposidpfo ipsodif posdif psidfpoispodfi
     sample.sample.sample.sample.sample.sample.sample.sample.sample.sample.\n
     "
             android:textColor="@color/white"

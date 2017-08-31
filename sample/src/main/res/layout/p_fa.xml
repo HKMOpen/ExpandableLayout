@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginLeft="@dimen/gap_lv3"
+    android:layout_marginRight="@dimen/gap_lv3">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@+id/qt1"
+        android:gravity="left|center_vertical"
+        android:text="@string/payment_selection_label_tickets"
+        android:textColor="@color/gray_light"
+        android:textSize="@dimen/tag_size_tiny" />
+
+    <TextView
+        android:id="@+id/qt1"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@+id/am1"
+        android:gravity="center"
+        android:text="XX"
+        android:textColor="@color/gray_light"
+        android:textSize="@dimen/tag_size_tiny" />
+
+    <TextView
+        android:id="@+id/am1"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:gravity="right|center_vertical"
+        android:text="HKD xxxx"
+        android:textColor="@color/gray_light"
+        android:textSize="@dimen/tag_size_tiny" />
+
+</RelativeLayout>

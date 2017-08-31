@@ -5,11 +5,14 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.github.aakira.expandablelayout.ExpandableLinearLayout;
 import com.github.aakira.expandablelayout.ExpandableRelativeLayout;
 
 import jp.android.aakira.sample.expandablelayout.R;
@@ -27,7 +30,8 @@ public class ExTypeTestCase extends AppCompatActivity implements View.OnClickLis
 
     private RelativeLayout mExpandButton;
     private ExpandableRelativeLayout mExpandLayout;
-    private LinearLayout mOverlayText;
+    private LinearLayout mContainer;
+    private Button mShowAdd;
     private ViewTreeObserver.OnGlobalLayoutListener mGlobalLayoutListener;
 
     @Override
@@ -37,35 +41,44 @@ public class ExTypeTestCase extends AppCompatActivity implements View.OnClickLis
 
         getSupportActionBar().setTitle(ExampleReadMoreActivity.class.getSimpleName());
 
+        mShowAdd = (Button) findViewById(R.id.add);
         mExpandButton = (RelativeLayout) findViewById(R.id.part_fb);
         mExpandLayout = (ExpandableRelativeLayout) findViewById(R.id.info_box_fb);
-        mOverlayText = (LinearLayout) findViewById(R.id.part_fb_box);
+        mContainer = (LinearLayout) findViewById(R.id.part_fb_box);
         mExpandButton.setOnClickListener(this);
+        mShowAdd.setOnClickListener(this);
 
-       /* mGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
+        mGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                mExpandLayout.move(mOverlayText.getHeight(), 0, null);
+                //mExpandLayout.move(mContainer.getHeight(), 0, null);
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
-                    mOverlayText.getViewTreeObserver().removeGlobalOnLayoutListener(mGlobalLayoutListener);
+                    mContainer.getViewTreeObserver().removeGlobalOnLayoutListener(mGlobalLayoutListener);
                 } else {
-                    mOverlayText.getViewTreeObserver().removeOnGlobalLayoutListener(mGlobalLayoutListener);
+                    mContainer.getViewTreeObserver().removeOnGlobalLayoutListener(mGlobalLayoutListener);
                 }
                 mExpandLayout.setExpanded(false);
             }
         };
-        mOverlayText.getViewTreeObserver().addOnGlobalLayoutListener(mGlobalLayoutListener);*/
+        mContainer.getViewTreeObserver().addOnGlobalLayoutListener(mGlobalLayoutListener);
     }
 
     @Override
     public void onClick(final View v) {
         switch (v.getId()) {
+            case R.id.add:
+                View a = LayoutInflater.from(this).inflate(R.layout.p_fa, mContainer, false);
+                mContainer.addView(a);
+                //  mExpandLayout.addView(a);
+                mExpandLayout.initLayout();
+                //..mExpandLayout.move(199);
+                break;
             case R.id.part_fb:
                 mExpandLayout.toggle();
 
                 //mExpandLayout.move(12, 0, null);
-             //mExpandButton.setVisibility(View.GONE);
-          //      mOverlayText.setVisibility(View.GONE);
+                //mExpandButton.setVisibility(View.GONE);
+                //      mContainer.setVisibility(View.GONE);
                 break;
         }
     }
