@@ -71,11 +71,12 @@ public class Utils {
     }
 
 
-    public final static void AppendItemToExpandableLaypout(LinearLayout container, ExpandableRelativeLayout layout_component_expandable_layout, final @LayoutRes int layout_id) {
+    public final static View AppendItemToExpandableLaypout(LinearLayout container, ExpandableRelativeLayout layout_component_expandable_layout, final @LayoutRes int layout_id) {
         View a = LayoutInflater.from(container.getContext()).inflate(layout_id, container, false);
         container.addView(a);
         layout_component_expandable_layout.initLayout();
         layout_component_expandable_layout.setExpanded(false);
+        return a;
     }
 
     public final static void ButtonControlExpandableLayout(ExpandableLayout layout_component_expandable_layout, final ImageView targetArrowImage, @DrawableRes final int close, @DrawableRes final int open) {
