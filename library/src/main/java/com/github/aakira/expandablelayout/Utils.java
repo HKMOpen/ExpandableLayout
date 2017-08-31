@@ -1,10 +1,15 @@
 package com.github.aakira.expandablelayout;
 
 import android.animation.TimeInterpolator;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.IntRange;
+import android.support.annotation.LayoutRes;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.support.v4.view.animation.LinearOutSlowInInterpolator;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AnticipateInterpolator;
@@ -13,6 +18,8 @@ import android.view.animation.BounceInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.OvershootInterpolator;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 public class Utils {
 
@@ -62,4 +69,47 @@ public class Utils {
                 return new LinearInterpolator();
         }
     }
+
+
+    public final static void AppendItemToExpandableLaypout(LinearLayout container, ExpandableRelativeLayout layout_component_expandable_layout, final @LayoutRes int layout_id) {
+        View a = LayoutInflater.from(container.getContext()).inflate(layout_id, container, false);
+        container.addView(a);
+        layout_component_expandable_layout.initLayout();
+        layout_component_expandable_layout.setExpanded(false);
+    }
+
+    public final static void ButtonControlExpandableLayout(ExpandableLayout layout_component_expandable_layout, final ImageView targetArrowImage, @DrawableRes final int close, @DrawableRes final int open) {
+        layout_component_expandable_layout.setListener(new ExpandableLayoutListener() {
+            @Override
+            public void onAnimationStart() {
+
+            }
+
+            @Override
+            public void onAnimationEnd() {
+
+            }
+
+            @Override
+            public void onPreOpen() {
+                targetArrowImage.setImageDrawable(ContextCompat.getDrawable(targetArrowImage.getContext(), close));
+            }
+
+            @Override
+            public void onPreClose() {
+
+            }
+
+            @Override
+            public void onOpened() {
+
+            }
+
+            @Override
+            public void onClosed() {
+                targetArrowImage.setImageDrawable(ContextCompat.getDrawable(targetArrowImage.getContext(), open));
+            }
+        });
+    }
+
 }

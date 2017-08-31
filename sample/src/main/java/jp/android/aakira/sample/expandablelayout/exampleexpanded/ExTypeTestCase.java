@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 
 import com.github.aakira.expandablelayout.ExpandableLinearLayout;
 import com.github.aakira.expandablelayout.ExpandableRelativeLayout;
+import com.github.aakira.expandablelayout.Utils;
 
 import jp.android.aakira.sample.expandablelayout.R;
 
@@ -48,7 +49,7 @@ public class ExTypeTestCase extends AppCompatActivity implements View.OnClickLis
         mExpandButton.setOnClickListener(this);
         mShowAdd.setOnClickListener(this);
 
-        mGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
+       /* mGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
                 //mExpandLayout.move(mContainer.getHeight(), 0, null);
@@ -60,18 +61,15 @@ public class ExTypeTestCase extends AppCompatActivity implements View.OnClickLis
                 mExpandLayout.setExpanded(false);
             }
         };
-        mContainer.getViewTreeObserver().addOnGlobalLayoutListener(mGlobalLayoutListener);
+        mContainer.getViewTreeObserver().addOnGlobalLayoutListener(mGlobalLayoutListener);*/
     }
 
     @Override
     public void onClick(final View v) {
         switch (v.getId()) {
             case R.id.add:
-                View a = LayoutInflater.from(this).inflate(R.layout.p_fa, mContainer, false);
-                mContainer.addView(a);
-                //  mExpandLayout.addView(a);
-                mExpandLayout.initLayout();
-                //..mExpandLayout.move(199);
+
+                Utils.AppendItemToExpandableLaypout(mContainer, mExpandLayout, R.layout.p_fa);
                 break;
             case R.id.part_fb:
                 mExpandLayout.toggle();

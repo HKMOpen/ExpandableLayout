@@ -10,6 +10,9 @@ You can include optional contents and use everywhere.
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-ExpandableLayout-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2456)
 [![Android Gems](http://www.android-gems.com/badge/AAkira/ExpandableLayout.svg?branch=master)](http://www.android-gems.com/lib/AAkira/ExpandableLayout)
 
+[ ![Download](https://api.bintray.com/packages/jjhesk/maven/expandable-layout/images/download.svg) ](https://bintray.com/jjhesk/maven/expandable-layout/_latestVersion)
+
+
 ## Preview
 
 ### Normal
@@ -268,7 +271,7 @@ buildscript {
 }
 
 dependencies {
-	compile 'com.github.aakira:expandable-layout:1.6.0@aar'
+    compile 'com.hkm.ui:expandable-layout:1.7.1'
 }
 ```
 
